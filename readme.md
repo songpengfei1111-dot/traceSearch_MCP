@@ -1,0 +1,16 @@
+# 基于large-text-viewer的 trace分析mcp
+
+文本搜索后端可以按你的喜好更换，比如rigrep甚至直接命令行grep
+
+目前在kiro上使用
+
+search_strategy.md 和 trace_format.md 要使用你自己的trace格式
+
+⚠️注意⚠️
+ai的大脑褶皱是平滑的，你只能让他代替你进行机械化的劳动，或者期待他某一下灵光一闪
+
+所以，流水化和标准化的trace搜索方法是你要考虑的，ai做不了你自己认知以外的事
+
+简单的算法ai表现很好，但复杂一些的算法会大量烧token，且表现不一定好，这里要自己多调试
+
+技术交流可以加 vx baserker2 加好备注
