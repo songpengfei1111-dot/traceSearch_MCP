@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "MCP Search Preparation",
+  "description": "Reads trace_format.md and search_strategy.md before performing MCP file searches to ensure proper methodology",
+  "version": "1",
+  "when": {
+    "type": "promptSubmit"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "在使用MCP搜索文件之前，请先阅读 trace_format.md 和 search_strategy.md 文件，理解要搜索的trace格式和搜索的策略，然后基于这些指导原则思考如何进行下一步的搜索操作。在每一轮的搜索后要总结并复盘计算逻辑，并用python还原，猜测后一定要进行算法验证"
+  }
+}
