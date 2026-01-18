@@ -14,3 +14,12 @@ ai的大脑褶皱是平滑的，你只能让他代替你进行机械化的劳动
 简单的算法ai表现很好，但复杂一些的算法会大量烧token，且表现不一定好，这里要自己多调试
 
 技术交流可以加 vx baserker2 加好备注
+
+测试mcp
+
+阅读 readme/中 trace_format.md 和 search_strategy.md 的要求
+通过mcp分析/Users/teng/PycharmProjects/pythonProject/tiktok/log/record_00_XG.txt 中
+840480a30000267b86a1b0f7e6814449319585f86f7f2056e72f 中 267b86a1b0f7e6814449319585f86f7f2056e72f 的生成算法
+
+
+//TODO context 提供小范围的反向污点，增加context质量
