@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "large-text-searcher": {
+      "command": "python3",
+      "args": ["large_text_viewer_mcp.py"],
+      "cwd": "/Users/teng/PycharmProjects/traceSerach_MCP",
+      "disabled": false,
+      "autoApprove": ["generate_random_number", "file_info", "extract_lines", "search_text"]
+    }
+  }
+}
