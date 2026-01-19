@@ -38,9 +38,6 @@ Lines: 254800
 
 # 提取单行
 ./target/release/large-text-viewer lines --file /path/to/large.txt --start 42 --count 1
-
-# 提取某行的context
-
 ```
 
 ### 3. 文本搜索 (search)
@@ -79,3 +76,11 @@ Lines: 254800
 
 Showed 2 matches
 ```
+
+
+//TODO 限制总行数，而不是结果的数量
+//有些事情就在mcp-api层面限制死，不需要总让ai来注意
+//先提供一些通过魔数获取的算法先验
+//提供一段基于文字描述的trace段虚拟内存
+
+|line1-line2000:0xaaaa-0xbbbb:描述|
