@@ -1,3 +1,16 @@
+使用mcp，large-text-searcher： 
+
+使用large-text-viewer-mcp： 
+先阅读 readme 中的 trace_format.md 和 search_strategy.md 了解trace格式和搜索策略
+任务：
+找出/Users/teng/PycharmProjects/pythonProject/tiktok/log/record_00_tk.txt 文件中
+08d2a4808204100218f283aa9c01220431323333320...
+这一段protobuf的生成逻辑。
+提示：
+你可以用开头的 08d2a480 作为定位符号，告诉我是生产这段的线索
+
+
+
 使用large-text-viewer-mcp： 
  阅读my_XL.py 文件，在其中有一个 randomBytes = bytes.fromhex('c62cbe67') ，每次都不一样，请根据其他的关键明文定位找出在 
  /Users/teng/PycharmProjects/pythonProject/tiktok/log/record_00_tk.txt 中，这个对应的随机randomBytes应该是多少
