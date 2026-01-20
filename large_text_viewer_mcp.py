@@ -109,10 +109,10 @@ async def list_tools() -> List[Tool]:
                 "properties": {
                     "file_path": {"type": "string", "description": "文件路径"},
                     "pattern": {"type": "string", "description": "搜索模式，如果需要结果的上下文，考虑同时使用context"},
-                    "regex": {"type": "boolean", "description": "是否使用正则表达式（默认false）"},
+                    # "regex": {"type": "boolean", "description": "是否使用正则表达式（默认false）"},
                     # "case_sensitive": {"type": "boolean", "description": "是否区分大小写（默认false）"},
                     # "count_only": {"type": "boolean", "description": "是否只统计匹配数量（默认false）"},
-                    "max_results": {"type": "integer", "description": "最大结果数量（默认50）"},
+                    # "max_results": {"type": "integer", "description": "最大结果数量（默认50）"},
                     "context": {"type": "integer", "description": "显示上下文行数（默认0）从目标行向上n行为上下文"}
                 },
                 "required": ["file_path", "pattern"],
