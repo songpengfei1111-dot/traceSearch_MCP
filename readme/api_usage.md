@@ -67,12 +67,12 @@ Lines: 254800
 
 搜索输出示例：
 ```
->   1042: This is an error message
-    1043: Following line
+    1042: This is an error message
+>   1043: Following line
 --
->   2156: Another error occurred
+    2156: Another error occurred
     2157: Stack trace follows
-    2158: at function xyz()
+>   2158: at function xyz()
 
 Showed 2 matches
 ```
@@ -85,3 +85,8 @@ Showed 2 matches
 
 |line1-line2000:0xaaaa-0xbbbb:描述|
 //搜索结果多的时候要如何让ai能注意到关键的信息，比如一大段结果， 我们可以通过memset 0 或者malloc 知道这是在初始化这段内存，所以写入这段内存的逻辑一定在初始化内存和最终的结果之间，这个逻辑要如何告诉ai
+//在trace引擎中提供
+//core增添har包解析，csv解析功能，对于格式确定的东西，用rust版pandas会更快吧
+//或者...这些工作为什么要手搓呢，我是说，只要在mcp里提供这些功能就行了，肯定已经有人的规则引擎已经做的更好了。trace搜索这块的后段也是换成rigrep，grep也行，python mcp只要提供命令行中转就可以了
+//不要为了做而做
+
