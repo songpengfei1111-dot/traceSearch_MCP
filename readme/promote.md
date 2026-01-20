@@ -1,5 +1,15 @@
 使用mcp，large-text-searcher： 
 
+使用large-text-viewer-mcp：
+先阅读 readme 中的 trace_format.md 和 search_strategy.md 了解trace格式和搜索策略
+任务:
+找出"x-sap-ri": 的值是如何生成的
+提示:
+你可以用开头的4位或8位定位，由于是要找最开始生成的逻辑，所以你可以从最开始出现的地方开始找
+
+
+
+
 使用large-text-viewer-mcp： 
 先阅读 readme 中的 trace_format.md 和 search_strategy.md 了解trace格式和搜索策略
 任务：

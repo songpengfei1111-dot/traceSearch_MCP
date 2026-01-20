@@ -42,6 +42,7 @@ def _run_command(cmd: List[str]) -> List[TextContent]:
         return _create_error_response(e.stderr or "命令执行失败")
     except Exception as e:
         return _create_error_response(str(e))
+
 @server.list_tools()
 async def list_tools() -> List[Tool]:
     """定义可用的工具列表"""
