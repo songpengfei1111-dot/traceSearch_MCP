@@ -1,5 +1,19 @@
 使用mcp，large-text-searcher： 
 
+使用large-text-viewer-mcp：
+先阅读 readme 中的 trace_format.md 和 search_strategy.md 了解trace格式和搜索策略
+任务: 
+在 /Users/teng/PycharmProjects/pythonProject/tiktok/log/record_00_XG.txt 中
+还原 267b86a1b0f7e6814449319585f86f7f2056e72f 这段的生成逻辑
+还原到能使用python脚本正向生成
+提示:
+目标字符串是下面字符串的一部分
+8404 80a30000 267b86a1b0f7e6814449319585f86f7f2056e72f
+
+
+
+
+
 --- 
 使用large-text-viewer-mcp：
 先阅读 readme 中的 trace_format.md 和 search_strategy.md 了解trace格式和搜索策略
