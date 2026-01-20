@@ -3,6 +3,7 @@
 
 import asyncio
 import os
+import re
 import random
 import subprocess
 from typing import Any, Dict, List
@@ -37,7 +38,20 @@ def _run_command(cmd: List[str]) -> List[TextContent]:
     """执行命令并返回结果"""
     try:
         result = subprocess.run(cmd, capture_output=True, text=True, check=True)
-        return _create_success_response(result.stdout)
+        
+        # 检查搜索结果数量
+        output = result.stdout
+        if "matches" in output:
+            import re
+            # 匹配 "Showed xxx matches" 模式
+            match = re.search(r'Showed\s+(\d+)\s+matches', output)
+            match1 = re.search(r'Found\s+(\d+)\s+matches', output)
+            if match or match1:
+                match_count = int(match.group(1))
+                if match_count >= 100:  # 当显示100个结果时，说明可能有更多结果被截断
+                    return _create_error_response("返回结果过多，请重新考虑搜索规则")
+                
+        return _create_success_response(output)
     except subprocess.CalledProcessError as e:
         return _create_error_response(e.stderr or "命令执行失败")
     except Exception as e:

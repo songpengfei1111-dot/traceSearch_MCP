@@ -1,5 +1,10 @@
 使用mcp，large-text-searcher： 
 
+
+
+
+
+
 使用large-text-viewer-mcp：
 先阅读 readme 中的 trace_format.md 和 search_strategy.md 了解trace格式和搜索策略
 任务:

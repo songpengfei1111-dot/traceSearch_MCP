@@ -21,5 +21,9 @@ ai的大脑褶皱是平滑的，你只能让他代替你进行机械化的劳动
 通过mcp分析/Users/teng/PycharmProjects/pythonProject/tiktok/log/record_00_XG.txt 中
 840480a30000267b86a1b0f7e6814449319585f86f7f2056e72f 中 267b86a1b0f7e6814449319585f86f7f2056e72f 的生成算法
 
-
 //TODO context 提供小范围的反向污点，增加context质量
+
+
+[+] 新功能：搜索结果溢出100个时结果已经没有意义，直接在mcp拦截，让模型重新思考如何搜索，不要浪费token还把结果看一遍
+
+
