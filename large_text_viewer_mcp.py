@@ -49,7 +49,7 @@ def _run_command(cmd: List[str]) -> List[TextContent]:
             if match or match1:
                 match_count = int(match.group(1))
                 if match_count >= 100:  # 当显示100个结果时，说明可能有更多结果被截断
-                    return _create_error_response("返回结果过多，请重新考虑搜索规则")
+                    return _create_error_response("返回结果过多，请重新考虑搜索规则，比如考虑给出搜索的行数限制")
                 
         return _create_success_response(output)
     except subprocess.CalledProcessError as e:
