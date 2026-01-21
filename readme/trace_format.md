@@ -31,3 +31,9 @@ ld____ 78de873424 4 b0
 
 78eb69608c [8408c]	add x11, x17, x3		 (r) x17=0x78ebdc8110 (r) x3=0xffffffffff9bc960  (w) x11=0x78eb784a70 
 String__ 78eb784a70—>5256
+
+# 函数调用
+[libc.so::memcpy] dest= 0x7d275af1e0 src= 0x7d275f6460 size= 7 buffer=...
+一些拼接而成的密钥会用到memcpy，你可以通过 dest+size 或者src来 查找拼接过程
+
+
