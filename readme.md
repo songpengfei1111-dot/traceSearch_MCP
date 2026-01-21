@@ -21,7 +21,7 @@ ai的大脑褶皱是平滑的，你只能让他代替你进行机械化的劳动
 通过mcp分析/Users/teng/PycharmProjects/pythonProject/tiktok/log/record_00_XG.txt 中
 840480a30000267b86a1b0f7e6814449319585f86[record_00 2.txt.zip](../pythonProject/shopee_proj/log/record_00%202.txt.zip)f7f2056e72f 中 267b86a1b0f7e6814449319585f86f7f2056e72f 的生成算法
 
-//TODO context 提供小范围的反向污点，增加context质量
+//TODO context 提供小范围的反向污点，增加context质量，但这又影响格式，要怎么兼容？
 //升级后段，给search_text增添行范围筛选
 //增加书签功能，让模型能标记某某行到某某行是什么作用，把一些范围标记为没用，并影响筛选结果
 //告诉ai哪些搜索方案是不严谨的
@@ -45,3 +45,4 @@ ai的大脑褶皱是平滑的，你只能让他代替你进行机械化的劳动
 
 //不同的模型在使用api上有不同的偏好，claude更喜欢使用context，而gemini更喜欢使用正则匹配，但都不太喜欢搜指令 add a,c,b 这样的
 //思考轮次多了以后行为会产生变异，比如gemini开始使用grep绕开指定的mcp的正则
+//目前模型没有对于行相对关系的理解，比如连续搜索两次，在这两次之间做对比
