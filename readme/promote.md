@@ -11,14 +11,20 @@
 任务：
 在 /Users/teng/PycharmProjects/pythonProject/shein/shein_log/record_00_encrypt.txt 中 还原字符串的生成逻辑:
 找出 `2_2.7.5_047ac6_TAwEsBqZf9--TqwG...` 中 `047ac6` 是由什么生成的
-
 提示：
 关注 047ac6 的生成逻辑，找到是哪些明文生成了 047ac6
 
 
+使用large-text-viewer-mcp：
+任务：
+在 /Users/teng/PycharmProjects/pythonProject/shein/shein_log/record_00_encrypt.txt 中 还原字符串的生成逻辑:
+找出 `2_2.7.5_047ac6_TAwEsBqZf9--TqwG...` 中 `047ac6_TAwEsBqZf9--TqwG...` 是由什么生成的
+提示：
+关注 `TAwEsBqZf9--TqwG...` 的生成逻辑，找到是哪些明文生成了 `047ac6_TAwEsBqZf9--TqwG...`
+
+
 
 使用large-text-viewer-mcp：
-先阅读 readme 中的 trace_format.md 和 search_strategy.md 了解trace格式和搜索策略
 任务: 
 在 /Users/teng/PycharmProjects/pythonProject/shopee_proj/log/record_00.txt 中
 找到这里0x11f8的生成逻辑
