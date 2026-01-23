@@ -12,6 +12,8 @@ from mcp.server import Server
 from mcp.server.stdio import stdio_server
 from mcp.types import Tool, TextContent
 
+from crypto_magic_search import search_all_crypto_magic, format_search_results
+
 # 常量定义
 EXECUTABLE_PATH = "./target/release/large-text-viewer"
 SERVER_NAME = "largeTextSearcher-server"
@@ -62,18 +64,6 @@ async def list_tools() -> List[Tool]:
     """定义可用的工具列表"""
     return [
         Tool(
-            name="generate_random_number",
-            description="生成一个随机数",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "min": {"type": "integer", "description": "最小值（默认为1）"},
-                    "max": {"type": "integer", "description": "最大值（默认为100）"}
-                },
-                "additionalProperties": False
-            }
-        ),
-        Tool(
             name="file_info",
             description="获取文件的基本信息，如大小、行数等",
             inputSchema={
@@ -116,6 +106,18 @@ async def list_tools() -> List[Tool]:
                     # "max_results": {"type": "integer", "description": "最大结果数量（默认50）"}, # 模型会乱用导致偏见，进而死转，直接不给他用
                 },
                 "required": ["file_path", "pattern"],
+                "additionalProperties": False
+            }
+        ),
+        Tool(
+            name="search_crypto_magic",
+            description="通过搜索文件中的加密算法魔数，定位加密算法并找到入参",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "file_path": {"type": "string", "description": "要搜索的文件路径"},
+                },
+                "required": ["file_path"],
                 "additionalProperties": False
             }
         )
@@ -211,14 +213,39 @@ def _handle_search_text(arguments: Dict[str, Any]) -> List[TextContent]:
     return _run_command(cmd)
 
 
+def _handle_search_crypto_magic(arguments: Dict[str, Any]) -> List[TextContent]:
+    """处理加密算法魔数搜索"""
+    file_path = arguments.get("file_path")
+
+    if not file_path:
+        return _create_error_response("需要提供file_path参数")
+
+    if not _check_executable():
+        return _create_error_response(f"找不到可执行文件 {EXECUTABLE_PATH}，请先编译项目")
+    
+    # 检查文件是否存在
+    if not os.path.exists(file_path):
+        return _create_error_response(f"文件不存在: {file_path}")
+
+    try:
+        results = search_all_crypto_magic(file_path)
+        # 根据参数选择格式化函数
+        formatted_result = format_search_results(results)
+        return _create_success_response(formatted_result)
+        
+    except Exception as e:
+        return _create_error_response(f"搜索过程中发生错误: {str(e)}")
+
+
 @server.call_tool()
 async def call_tool(name: str, arguments: Dict[str, Any]) -> List[TextContent]:
     """工具调用分发器"""
     handlers = {
-        "generate_random_number": _handle_random_number,
+        # "generate_random_number": _handle_random_number,
         "file_info": _handle_file_info,
         "extract_lines": _handle_extract_lines,
         "search_text": _handle_search_text,
+        "search_crypto_magic": _handle_search_crypto_magic,
     }
     handler = handlers.get(name)
     if not handler:
