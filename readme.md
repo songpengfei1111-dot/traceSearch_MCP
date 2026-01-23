@@ -1,8 +1,12 @@
-# 基于large-text-viewer的 trace分析mcp
+# 基于large-text-viewer的 trace分析工具
 
 文本搜索后端可以按你的喜好更换，比如rigrep甚至直接命令行grep
 
-目前在kiro上使用
+**现在支持两种使用方式：**
+- **Trae Skill模式**（推荐）：位于 `.trae/skills/large-text-searcher/`，与Trae深度集成
+- **MCP服务器模式**：传统的MCP协议支持，兼容Kiro等IDE
+
+详细迁移指南请参考 [MIGRATION_GUIDE.md](MIGRATION_GUIDE.md)
 
 search_strategy.md 和 trace_format.md 要使用你自己的trace格式
 

@@ -1,3 +1,5 @@
 {
-  "disabledSkills": []
+  "disabledSkills": [
+    "arm64-trace-expert"
+  ]
 }

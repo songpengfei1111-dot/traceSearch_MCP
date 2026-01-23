@@ -12,7 +12,7 @@
 在 /Users/teng/PycharmProjects/pythonProject/shein/shein_log/record_00_encrypt.txt 中 还原字符串的生成逻辑:
 找出 `2_2.7.5_047ac6_TAwEsBqZf9--TqwG...` 中 `047ac6` 是由什么生成的
 提示：
-关注 047ac6 的生成逻辑，找到是哪些明文生成了 047ac6
+关注 `047ac6` 的生成逻辑，找到是哪些明文生成了 `047ac6`
 
 
 使用large-text-viewer-mcp：
