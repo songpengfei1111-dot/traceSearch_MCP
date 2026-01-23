@@ -197,10 +197,12 @@ def _handle_search_text(arguments: Dict[str, Any]) -> List[TextContent]:
         cmd.append("--case-sensitive")
     if arguments.get("count_only", False):
         cmd.append("--count-only")
+    # TODO wild search
+
     
-    max_results = arguments.get("max_results", 50)
-    if max_results != 50:
-        cmd.extend(["--max-results", str(max_results)])
+    # max_results = arguments.get("max_results", 50)
+    # if max_results != 50:
+    #     cmd.extend(["--max-results", str(max_results)])
     
     context = arguments.get("context", 0)
     if context > 0:

@@ -38,6 +38,8 @@ Lines: 254800
 
 # 提取单行
 ./target/release/large-text-viewer lines --file /path/to/large.txt --start 42 --count 1
+
+# test
 ```
 
 ### 3. 文本搜索 (search)
@@ -63,6 +65,18 @@ Lines: 254800
 
 # 显示上下文行
 ./target/release/large-text-viewer search --file /path/to/large.txt --pattern "error" --context 3
+
+# test 
+./target/release/large-text-viewer search --file /Users/teng/PycharmProjects/pythonProject/tiktok/log/record_00_XG.txt --regex --pattern "mov w.*#0xa3" --context 3
+
+{
+  "context": 5,
+  "file_path": "/Users/teng/PycharmProjects/pythonProject/tiktok/log/record_00_XG.txt",
+  "max_results": 10,
+  "pattern": "mov w.*#0xa3",
+  "regex": true
+}
+
 ```
 
 搜索输出示例：

@@ -2,6 +2,34 @@
 
 使用large-text-viewer-mcp：
 先阅读 readme 中的 trace_format.md 和 search_strategy.md 了解trace格式和搜索策略
+任务：
+在 /Users/teng/PycharmProjects/pythonProject/shein/shein_log/record_00_encrypt.txt 中 还原字符串的生成逻辑:
+
+找出在这个字符串 `047ac6` 是从哪里来的 
+2_2.7.5_047ac6_TAwEsBqZf9--TqwG...
+
+提示：
+关注 047ac6 的生成逻辑，找到是哪些明文生成了 047ac6
+
+
+
+使用large-text-viewer-mcp：
+先阅读 readme 中的 trace_format.md 和 search_strategy.md 了解trace格式和搜索策略
+任务: 
+在 /Users/teng/PycharmProjects/pythonProject/shopee_proj/log/record_00.txt 中
+找到这里0x11f8的生成逻辑
+753626b5bc [555bc]	madd w0, w19, w8, w20		(r)w19=0x2e(r)w8=0x64(r)w20=0x0  (w) w0=0x11f8 
+还原到能使用python脚本正向生成
+
+
+
+
+
+
+
+
+使用large-text-viewer-mcp：
+先阅读 readme 中的 trace_format.md 和 search_strategy.md 了解trace格式和搜索策略
 任务: 
 在 /Users/teng/PycharmProjects/pythonProject/tiktok/log/record_00_XG.txt 中
 还原 267b86a1b0f7e6814449319585f86f7f2056e72f 这段的生成逻辑
