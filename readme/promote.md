@@ -51,7 +51,12 @@
 
 
 
-
+使用large-text-viewer-mcp：
+先阅读 readme 中的 trace_format.md 和 search_strategy.md 了解trace格式和搜索策略
+任务: 
+在 /Users/teng/PycharmProjects/pythonProject/tiktok/log/record_00_XG.txt 中
+已知 c90e845cf6ec7c041a53ae45d93a092e 会经过一些加密操作生成 267b86a1b0f7e6814449319585f86f7f2056e72f
+找出生成的加密算法,还原这段的生成逻辑,使用python脚本验证
 
 --- 
 使用large-text-viewer-mcp：

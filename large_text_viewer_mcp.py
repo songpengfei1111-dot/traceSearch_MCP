@@ -182,6 +182,8 @@ def _handle_search_text(arguments: Dict[str, Any]) -> List[TextContent]:
     """处理文本搜索"""
     file_path = arguments.get("file_path")
     pattern = arguments.get("pattern")
+
+
     
     if not file_path or not pattern:
         return _create_error_response("需要提供file_path和pattern参数")
@@ -191,9 +193,13 @@ def _handle_search_text(arguments: Dict[str, Any]) -> List[TextContent]:
     
     # 构建命令参数
     cmd = [EXECUTABLE_PATH, "search", "--file", file_path, "--pattern", pattern]
-    
+
+
     # 添加可选参数
     if arguments.get("regex", False):
+        cmd.append("--regex")
+    has_reg_mark = '\\' in pattern or "|" in pattern
+    if has_reg_mark and "--regex" not in cmd:
         cmd.append("--regex")
     if arguments.get("case_sensitive", False):
         cmd.append("--case-sensitive")

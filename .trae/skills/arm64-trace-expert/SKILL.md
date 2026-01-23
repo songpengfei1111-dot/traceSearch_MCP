@@ -35,13 +35,13 @@ if (is_hash加密):
   - 然后获取context，阅读加密函数的入参
   - 使用python尝试计算加密的结果，看是否和目标值相符合
 else:
-  - 是否是base64，是的话尝试解码
-    - 是否是标准base64
-  - 是否是hash算法，有没有复杂的计算流程
+  - 是否是标准base64，不是标准则找自定义码表
+  - 是否是异或算法
 
 
 ### 3. 逻辑提取与模拟
 - 识别 `eor` (异或), `add` (加法), `lsl` (逻辑左移) 等关键算术指令。
+- 遇到 `eor x1, x2, x2` 的时候可以使用 `search_text` 环比验证
 - 观察 `[libc.so::xxx]`, `[env::jni]` 等系统函数，利用 `dest` 和 `src` 地址跨段追踪数据。
 - 提取关键常量或 S 盒数据，编写 Python 脚本尝试复现该段逻辑。
 
@@ -52,13 +52,16 @@ else:
 ## 搜索策略约束
 - **结果降噪**：若搜索结果超过 50 条，必须增加指令特征（如 `eor w8`）或缩小地址范围进行二次过滤。
 - **透明化思考**：每一步搜索前需陈述搜索目的。
+- 每15次使用搜索mcp以后要进行总结
+
 
 ## 工具参考
 
 | 任务场景         | 推荐工具                   | 关键参数                            |
 |:-------------|:-----------------------|:--------------------------------|
-| 初始定位已知字符串    | `search_text`          | `pattern="xxx"`, `regex`        |
-| 分析指令前后依赖     | `extract_lines`        | `start`, `count=20`             |
-| 追踪内存数据变动     | `search_text`          | `pattern="st____ [ADDR]"`       |
-| 识别复杂算法循环     | `search_text`          | `pattern="[REG_OP]", context=5` |
+| 初始定位已知字符串    | `search_text`          | `pattern="xxx"`                 |
+| 分析指令前后依赖     | `extract_lines`        | `start count=20`                |
+| 追踪内存数据变动     | `search_text`          | `pattern="st/ld____ [ADDR]"`    |
+| 获取目标值的上下文    | `search_text`          | `context=5 pattern="[REG_OP]" ` |
 | 通过算法魔数快速猜测流程 | `search_crypto_magic`  | `filepath`                      |
+| 正则搜索字符       | `search_text` | `regex pattern="xxx"`           |
