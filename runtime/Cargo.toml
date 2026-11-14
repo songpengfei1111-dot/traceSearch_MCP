@@ -1,0 +1,15 @@
+[package]
+name = "large-text-searcher-runtime"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[[bin]]
+name = "large-text-viewer-cli"
+path = "src/main.rs"
+
+[workspace]
+
+[dependencies]
+anyhow = "1.0"
+large-text-core = "=0.1.1"

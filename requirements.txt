@@ -1,2 +1,2 @@
-mcp>=1.0.0
-loguru>=0.7.0
+mcp>=1.12.0,<2
+jsonschema>=4,<5

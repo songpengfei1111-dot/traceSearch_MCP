@@ -5,6 +5,8 @@ Cryptographic Magic Number Search Tool
 """
 
 import subprocess
+import re
+from runtime_support import get_runtime
 import sys
 from typing import List, Dict, Tuple, Optional
 
@@ -39,7 +41,7 @@ CRYPTO_MAGIC_NUMBERS = {
     "DES_SBOX": [0x2C1E241B, 0x5A7F361D, 0x3D4793C6, 0x0B0EEDF8]
 }
 
-EXECUTABLE_PATH = "./target/release/large-text-viewer"
+
 
 
 def search_magic_number(file_path: str, magic_num: int, algorithm: str,
@@ -61,20 +63,22 @@ def search_magic_number(file_path: str, magic_num: int, algorithm: str,
 
     # 构建搜索命令
     cmd = [
-        EXECUTABLE_PATH, "search",
+        "search",
         "--file", file_path,
         "--pattern", hex_pattern,
         "--context", str(context)
     ]
 
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
-        output = result.stdout
+        output = get_runtime().execute(cmd)
 
         if "matches" in output and "Showed 0 matches" not in output:
             # 提取第一个匹配的行号
             lines = output.split('\n')
             first_line_num = None
+            header = re.search(r"^--- match #\d+ @ line (\d+) ---$", output, re.MULTILINE)
+            if header:
+                first_line_num = int(header.group(1))
             for line in lines:
                 if line.strip().startswith('>') and ':' in line:
                     # 提取行号，格式如 ">   1995: 7787e87854 [34854]"

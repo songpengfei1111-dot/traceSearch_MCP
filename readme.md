@@ -1,3 +1,7 @@
+## 可搬迁运行包
+
+MCP不再依赖开发目录下的target/release。按[运行包说明](README-runtime.md)构建独立CLI并生成包含server、manifest与bin的目录；可从任意cwd启动。运行前用runtime_health确认能力，缺失/不兼容运行时返回structured错误。主机Python须>=3.11。
+
 # 基于large-text-viewer的 trace分析工具
 
 文本搜索后端可以按你的喜好更换，比如rigrep甚至直接命令行grep

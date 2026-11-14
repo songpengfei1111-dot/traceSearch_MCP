@@ -58,3 +58,5 @@ htmlcov/
 # Logs
 *.log
 logs/
+# Headless runtime build output
+/runtime/target/
