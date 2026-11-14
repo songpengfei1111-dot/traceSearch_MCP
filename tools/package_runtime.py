@@ -2,7 +2,7 @@
 import argparse,hashlib,json,os,shutil,subprocess,tempfile
 from pathlib import Path
 
-FILES=("large_text_viewer_mcp.py","runtime_support.py","crypto_magic_search.py","requirements.txt","README-runtime.md","THIRD-PARTY-NOTICES.txt")
+FILES=("large_text_viewer_mcp.py","runtime_support.py","crypto_magic_search.py","requirements.txt","README-runtime.md","THIRD-PARTY-NOTICES.txt","tools/install_runtime.py")
 
 def package(runtime:Path,output:Path)->dict:
     root=Path(__file__).resolve().parents[1]
@@ -16,7 +16,9 @@ def package(runtime:Path,output:Path)->dict:
     output.parent.mkdir(parents=True,exist_ok=True)
     with tempfile.TemporaryDirectory(prefix=".text-package-",dir=output.parent) as temporary:
         staging=Path(temporary)/"package";staging.mkdir()
-        for name in FILES:shutil.copyfile(root/name,staging/name)
+        for name in FILES:
+            (staging/name).parent.mkdir(parents=True,exist_ok=True)
+            shutil.copyfile(root/name,staging/name)
         (staging/"bin").mkdir()
         name="large-text-viewer-cli.exe" if os.name=="nt" else "large-text-viewer-cli"
         shutil.copy2(runtime,staging/"bin"/name)

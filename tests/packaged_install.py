@@ -8,7 +8,7 @@ async def session(package,env,fixture,mode):
     process_env=dict(os.environ)
     process_env.pop("LARGE_TEXT_VIEWER_BIN",None)
     process_env.update(env)
-    async with stdio_client(StdioServerParameters(command=sys.executable,args=["-X","utf8",str(package/"large_text_viewer_mcp.py")],env=process_env,cwd=str(fixture.parent))) as streams:
+    async with stdio_client(StdioServerParameters(command=sys.executable,args=["-B","-X","utf8",str(package/"large_text_viewer_mcp.py")],env=process_env,cwd=str(fixture.parent))) as streams:
         async with ClientSession(*streams) as client:
             await client.initialize()
             names={t.name for t in (await client.list_tools()).tools}
